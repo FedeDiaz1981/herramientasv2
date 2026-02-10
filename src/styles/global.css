@@ -65,6 +65,60 @@
 		border-color: #8cc63f;
 		box-shadow: 0 20px 25px -5px rgba(140, 198, 63, 0.2);
 	}
+
+	.pdf-export .manual-bg {
+		background: #ffffff;
+	}
+	.pdf-export .manual-shell {
+		box-shadow: none;
+		border-radius: 0;
+		max-width: 100%;
+		max-height: none;
+		overflow: visible;
+	}
+	.pdf-export .manual-shell .sticky {
+		position: static;
+	}
+	.pdf-export .manual-grid {
+		display: flex;
+		flex-direction: column;
+	}
+	.pdf-export .manual-row {
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		gap: 20px;
+		break-before: page;
+		page-break-before: always;
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+	.pdf-export .manual-row:first-of-type {
+		break-before: auto;
+		page-break-before: auto;
+	}
+	.pdf-export .manual-card {
+		position: static;
+		break-inside: avoid;
+		break-inside: avoid-page;
+		page-break-inside: avoid;
+		box-shadow: none;
+	}
+	.pdf-export .manual-grid > * {
+		break-inside: avoid;
+		page-break-inside: avoid;
+	}
+	.pdf-export .pdf-break-before {
+		break-before: page;
+		page-break-before: always;
+	}
+	.pdf-export .pdf-break-force {
+		break-before: page;
+		page-break-before: always;
+	}
+	.pdf-export .btn-outline,
+	.pdf-export .btn-premium {
+		box-shadow: none;
+	}
 	.btn-premium {
 		background: #005596;
 		color: white;
@@ -125,13 +179,18 @@
 }
 
 .manual-grid {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.manual-row {
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
 	gap: 20px;
 }
 
 @media (max-width: 1024px) {
-	.manual-grid {
+	.manual-row {
 		display: flex;
 		flex-direction: column;
 	}
