@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import ManualUsuarioContent from '../components/ManualUsuarioContent.astro';
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Manual de Usuario | Biogénesis Bagó</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="min-h-screen bg-white">
+		<ManualUsuarioContent>
+			<a slot="back" href="/" class="btn-outline">
+				<i data-lucide="arrow-left"></i>
+				Volver al Panel
+			</a>
+			<span slot="badge" class="badge-green">Versión 13.0 - Estable</span>
+			<button slot="download" id="btnDownloadPage" type="button" class="btn-premium">
+				<i data-lucide="download-cloud"></i>
+				Guardar Guía
+			</button>
+		</ManualUsuarioContent>
+
+		<script defer src="https://unpkg.com/lucide@latest"></script>
+		<script defer src="/scripts/manual-page.js"></script>
+	</body>
+</html>

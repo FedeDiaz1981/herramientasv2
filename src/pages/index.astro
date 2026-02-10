@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import ReconversionPanel from '../components/ReconversionPanel.astro';
+import ManualUsuarioModal from '../components/ManualUsuarioModal.astro';
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Reconversion Archivo Time Tracking | Biogénesis Bagó</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body class="min-h-screen bg-brand-bg text-ui-text antialiased font-sans">
+		<header class="bg-white/90 backdrop-blur border-b border-ui-border">
+			<div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+				<div class="flex items-center gap-3">
+					<div class="w-11 h-11 rounded-2xl bg-brand-blue text-white flex items-center justify-center font-bold">
+						BB
+					</div>
+					<div>
+						<p class="text-[10px] uppercase tracking-[0.2em] text-ui-meta">Herramientas internas</p>
+						<h1 class="text-lg md:text-xl font-extrabold text-brand-navy">Centro de Herramientas</h1>
+					</div>
+				</div>
+				<nav class="flex flex-wrap items-center gap-2">
+					<button id="navHome" type="button" class="nav-btn">Inicio</button>
+					<button id="navReconversion" type="button" class="nav-btn">Panel de reconversión</button>
+				</nav>
+			</div>
+		</header>
+
+		<main class="w-full">
+			<div id="emptyState" class="max-w-4xl mx-auto px-6 py-14">
+				<div class="rounded-2xl border border-dashed border-ui-border bg-white/70 p-10 text-center text-ui-meta">
+					<p class="text-sm font-semibold">Selecciona una herramienta en el encabezado.</p>
+				</div>
+			</div>
+			<div id="toolReconversion" class="hidden">
+				<ReconversionPanel />
+			</div>
+		</main>
+
+		<ManualUsuarioModal />
+
+		<script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+		<script defer src="https://unpkg.com/lucide@latest"></script>
+		<script defer src="/scripts/reconversion.js"></script>
+		<script defer src="/scripts/manual-modal.js"></script>
+		<script defer src="/scripts/tools-nav.js"></script>
+	</body>
+</html>

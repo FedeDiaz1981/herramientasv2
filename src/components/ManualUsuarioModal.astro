@@ -1,0 +1,52 @@
+---
+import ManualUsuarioContent from './ManualUsuarioContent.astro';
+---
+
+<section
+	id="manualModal"
+	class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4 md:p-8"
+	aria-hidden="true"
+	role="dialog"
+	aria-modal="true"
+	aria-labelledby="manualTitle"
+>
+	<div class="manual-shell max-h-full w-full max-w-6xl overflow-y-auto rounded-2xl bg-white shadow-2xl">
+		<div class="sticky top-0 z-10 border-b border-slate-200 bg-white/95 backdrop-blur">
+			<div class="flex items-center justify-between px-6 py-4">
+				<div class="flex items-center gap-3">
+					<div class="bg-[#005596] p-2 rounded-xl text-white">
+						<i data-lucide="activity" class="w-5 h-5"></i>
+					</div>
+					<div>
+						<p class="text-xs font-bold text-slate-500 uppercase tracking-widest">
+							Biogénesis Bagó • Herramientas Internas
+						</p>
+						<h2 id="manualTitle" class="text-xl font-extrabold text-slate-900">
+							Manual de Usuario
+						</h2>
+					</div>
+				</div>
+				<button
+					id="btnManualClose"
+					type="button"
+					class="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-600 hover:bg-slate-50"
+					aria-label="Cerrar manual"
+				>
+					Cerrar
+				</button>
+			</div>
+		</div>
+
+		<ManualUsuarioContent>
+			<button slot="back" id="btnManualBack" type="button" class="btn-outline">
+				<i data-lucide="arrow-left"></i>
+				Volver al Panel
+			</button>
+			<span slot="badge" class="badge-green">Versión 13.0 - Estable</span>
+			<button slot="download" id="btnDownload" type="button" class="btn-premium">
+				<i data-lucide="download-cloud"></i>
+				Guardar Guía
+			</button>
+		</ManualUsuarioContent>
+	</div>
+</section>

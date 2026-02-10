@@ -1,0 +1,149 @@
+<div class="manual-bg">
+	<div class="max-w-7xl mx-auto p-6 md:p-12">
+		<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+			<slot name="back" />
+			<div class="flex items-center gap-4">
+				<slot name="badge" />
+				<slot name="download" />
+			</div>
+		</div>
+
+		<header class="mb-12">
+			<div class="flex items-center gap-3 mb-2">
+				<div class="bg-[#005596] p-2 rounded-xl text-white">
+					<i data-lucide="activity" class="w-6 h-6"></i>
+				</div>
+				<span class="text-sm font-bold text-slate-500 uppercase tracking-widest">
+					Biogénesis Bagó • Herramientas Internas
+				</span>
+			</div>
+			<h1 class="text-4xl font-extrabold text-slate-900">Manual de Usuario</h1>
+			<p class="text-slate-500 mt-1">
+				Gestión y procesamiento de marcaciones industriales Time Tracking.
+			</p>
+		</header>
+
+		<main class="manual-grid">
+			<section class="manual-card col-span-8">
+				<h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-slate-800">
+					<i data-lucide="zap" class="text-blue-600"></i> Propósito del Sistema
+				</h2>
+				<p class="text-slate-600 leading-relaxed mb-4">
+					Esta aplicación actúa como un motor de limpieza para los registros de asistencia. Toma
+					datos brutos de relojes químicos o digitales y los transforma en una estructura clara de
+					<strong>Llegada/Salida</strong>, resolviendo discrepancias automáticamente.
+				</p>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div class="info-box">
+						<span class="font-bold block mb-1">Entrada</span>
+						Excel (.xlsx) o CSV con columnas de legajo, nombre y tiempos.
+					</div>
+					<div class="info-box">
+						<span class="font-bold block mb-1">Salida</span>
+						Reporte refinado con hoja adicional de auditoría "Errors & Info".
+					</div>
+				</div>
+			</section>
+
+			<section class="manual-card col-span-4">
+				<h3 class="text-lg font-bold mb-4 text-slate-800">Guía Express</h3>
+				<div class="space-y-4">
+					<div class="flex gap-4">
+						<div
+							class="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"
+						>
+							1
+						</div>
+						<p class="text-sm">Carga tu archivo de marcaciones original.</p>
+					</div>
+					<div class="flex gap-4">
+						<div
+							class="bg-blue-100 text-blue-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"
+						>
+							2
+						</div>
+						<p class="text-sm">Presiona el botón procesar y espera la validación.</p>
+					</div>
+					<div class="flex gap-4">
+						<div
+							class="bg-green-100 text-green-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0"
+						>
+							3
+						</div>
+						<p class="text-sm">
+							Descarga el reporte <strong>Refact_V13</strong> final.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="manual-card col-span-4">
+				<h3 class="text-lg font-bold mb-4 flex items-center gap-2 text-slate-800">
+					<i data-lucide="git-merge" class="text-blue-600"></i> Lógica Inteligente
+				</h3>
+				<ul class="space-y-4 text-sm">
+					<li class="pb-3 border-b border-slate-100">
+						<strong class="text-slate-800 block">Identificación de Personas</strong>
+						El sistema limpia automáticamente los legajos (ej: "L-1234" pasa a "1234") para asegurar
+						que no se dupliquen registros por errores de escritura.
+					</li>
+					<li class="pb-3 border-b border-slate-100">
+						<strong class="text-slate-800 block">Unificación de Jornada</strong>
+						Si una persona ficha varias veces al entrar o salir, el sistema elige inteligentemente la
+						primera llegada y la última salida del día para calcular el tiempo real de permanencia.
+					</li>
+					<li class="pb-3 border-b border-slate-100">
+						<strong class="text-slate-800 block">Fusión Turno Noche</strong>
+						Si el sistema detecta una entrada hoy pero la salida es mañana (con menos de 20hs de
+						diferencia), une ambas marcas en un solo turno continuo automáticamente.
+					</li>
+					<li class="pb-3 border-b border-slate-100">
+						<strong class="text-slate-800 block">Detección de Columnas</strong>
+						No importa el orden de tu archivo; el motor rastrea palabras clave como "ID", "Legajo" o
+						"Evento" para entender tus datos sin configuración previa.
+					</li>
+					<li>
+						<strong class="text-slate-800 block text-orange-600 font-bold">
+							Alertas de Revisión
+						</strong>
+						Cualquier fichada olvidada (entrada sin salida o viceversa) se separa en la hoja
+						"Errors & Info" para que puedas corregirla manualmente con facilidad.
+					</li>
+				</ul>
+			</section>
+
+			<section class="manual-card col-span-8">
+				<h3 class="text-lg font-bold mb-4 text-slate-800">Visualización de Procesamiento</h3>
+				<div class="bg-slate-50 rounded-xl p-6 border border-dashed border-slate-300">
+					<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+						<div class="text-center">
+							<span class="text-[10px] uppercase font-bold text-slate-400">
+								Origen (2 Filas separadas)
+							</span>
+							<div
+								class="mt-2 text-xs font-mono bg-white p-3 rounded shadow-sm border border-slate-200"
+							>
+								15/01 - 22:15 (Entrada)<br />
+								16/01 - 06:45 (Salida)
+							</div>
+						</div>
+						<i data-lucide="arrow-right-circle" class="text-blue-500 w-10 h-10 hidden md:block"></i>
+						<div class="bg-blue-600 text-white p-4 rounded-xl text-sm shadow-lg shadow-blue-200">
+							<span class="font-bold">Resultado Unificado Automático:</span><br />
+							Jornada 15/01: 22:15 → 06:45 <br />
+							<span class="text-[10px] opacity-80">(Fusión Nocturna Aplicada con Éxito)</span>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="mt-12 pt-8 border-t border-slate-200 flex justify-between items-center text-slate-400 text-sm">
+			<p>© 2026 Biogénesis Bagó - Excelencia en Procesos</p>
+			<div class="flex gap-4">
+				<i data-lucide="shield-check" class="w-5 h-5"></i>
+				<i data-lucide="database" class="w-5 h-5"></i>
+			</div>
+		</footer>
+	</div>
+</div>
